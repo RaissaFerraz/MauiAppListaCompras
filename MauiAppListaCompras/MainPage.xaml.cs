@@ -89,7 +89,7 @@ namespace MauiAppListaCompras
                 if (confirm) 
                 {
                     await App.Db.Delete(p.Id);
-                    await DisplayAlert("Sucesso!",
+                    await DisplayAlert("Sucesso!,.,",
                         "Produto Removido", "Ok");
                 }
             }
