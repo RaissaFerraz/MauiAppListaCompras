@@ -12,17 +12,22 @@
     </ContentPage.Resources>
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Somar"/>
-        <ToolbarItem Text="Adicionar"/>
+        <ToolbarItem Text="Somar" Clicked="ToolbarItem_Clicked_Somar"/>
+        <ToolbarItem Text="Adicionar" Clicked="ToolbarItem_Clicked_Add"/>
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
         <VerticalStackLayout>
             <SearchBar x:Name="txt_search" Margin="-10, 0, 0, 0"
-                       Placeholder="Busca de Produtos"/>
-            <RefreshView x:Name="ref_carregando" IsRefreshing="False" />
+                       Placeholder="Busca de Produtos"
+                       TextChanged="txt_search_TextChanged"/>
+            
+            <RefreshView x:Name="ref_carregando_Refreshing"
+                         IsRefreshing="False"
+                         Refreshing="ref_carregando_Refreshing"/>
 
-            <ListView x:Name="lst_produtos">
+            <ListView x:Name="lst_produtos"
+                      ItemSelected="lst_produtos_ItemSelected">
                 <ListView.Header>
                     <Grid ColumnDefinitions="3*, *, *, *">
                         <Label Grid.Column="0" Text="Produtos"/>
@@ -31,6 +36,17 @@
                         <Label Grid.Column="3" Text="Total"/>
                     </Grid>
                 </ListView.Header>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Remover" Clicked="MenuItem_Clicked"/>
+                            </ViewCell.ContextActions>
+                            R
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
             </ListView>
             
         </VerticalStackLayout>
