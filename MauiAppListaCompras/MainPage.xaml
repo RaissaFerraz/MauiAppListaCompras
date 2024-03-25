@@ -22,7 +22,7 @@
                        Placeholder="Busca de Produtos"
                        TextChanged="txt_search_TextChanged"/>
             
-            <RefreshView x:Name="ref_carregando_Refreshing"
+            <RefreshView x:Name="ref_carregando"
                          IsRefreshing="False"
                          Refreshing="ref_carregando_Refreshing"/>
 
@@ -43,7 +43,12 @@
                             <ViewCell.ContextActions>
                                 <MenuItem Text="Remover" Clicked="MenuItem_Clicked"/>
                             </ViewCell.ContextActions>
-                            R
+                            <Grid ColumnDefinitions="3*,*,*,*">
+                                <Label Grid.Row="0" Grid.Column="0" Text="{Binding Descricao}"/>
+                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding Quantidade}"/>
+                                <Label Grid.Row="0" Grid.Column="2" Text="{Binding Preco}"/>
+                                <Label Grid.Row="0" Grid.Column="3" Text="{Binding Total}"/>
+                            </Grid>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
